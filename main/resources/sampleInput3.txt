@@ -1,0 +1,6 @@
+India   Tamil Nadu  Chennai 4.344
+India   Maharashtra Mumbai  11.98
+India   Maharashtra Pune    2.538
+India   Tamil Nadu  Coimbatore  0.931
+USA Washington  Seattle 0.652
+USA Washington  Tacoma  0.20

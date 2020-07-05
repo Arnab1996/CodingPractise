@@ -1,0 +1,9 @@
+Washington-USA  Seattle
+Maharashtra-India   Pune
+Maharashtra-India   Mumbai
+Washington-USA  Spokane
+Washington-USA  Olympia
+Tamil Nadu-India    Chennai
+Tamil Nadu-India    Coimbatore
+California-USA  San Francisco
+California-USA  Los Angeles
