@@ -207,6 +207,7 @@ class TestClass {
 
 	}
 
+	@SuppressWarnings("unused")
 	private static void preprocess(int pos, int[][] pre, List<List<Integer>> tree, int[] traverse, int depth, int last,
 			int[] tin, int[] tout) {
 		tin[pos] = counter++;

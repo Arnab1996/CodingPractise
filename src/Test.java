@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class Test {
@@ -16,7 +15,7 @@ public class Test {
 		}
 
 		boolean visited = false;
-		List<Graph> next;
+		Graph next;
 
 		@Override
 		public String toString() {
@@ -32,7 +31,7 @@ public class Test {
 		String source = "damp";
 		String target = "like";
 
-		// method to call preprocess to populate the graph with apropriate dictionary
+		// method to call pre-process to populate the graph with appropriate dictionary
 		// words
 		String arr[] = new String[] { "damp", "mamp", "lamp", "limp", "lime", "like" };
 		preprocess(arr);
@@ -53,17 +52,15 @@ public class Test {
 				System.out.println(target);
 				return;
 			}
-			int i = 0;
 			if (gr.next != null) {
-				++i;
-				boolean consider = chechDiff(gr.value, gr.next.get(i).value);
+				boolean consider = chechDiff(gr.value, gr.next.value);
 				if (consider && !gr.visited) {
-					Q.add(gr.next.get(i));
+					Q.add(gr.next);
 					gr.visited = true;
 					System.out.println(gr.value);
 					Q.poll();
 				}
-				gr = gr.next.get(i);
+				gr = gr.next;
 			}
 		}
 
@@ -73,14 +70,12 @@ public class Test {
 		if (gr.value.equals(target)) {
 			return;
 		}
-		int i = 0;
 
 		if (!gr.visited) {
-			i++;
-			boolean consider = chechDiff(gr.value, gr.next.get(i).value);
+			boolean consider = chechDiff(gr.value, gr.next.value);
 			if (consider) {
-				dfs(gr.next.get(i).value, target);
-				System.out.println(gr.next.get(i).value);
+				dfs(gr.next.value, target);
+				System.out.println(gr.next.value);
 				gr.visited = true;
 			}
 		}
@@ -104,17 +99,9 @@ public class Test {
 
 	private static void preprocess(String[] arr) {
 		gr = new Graph(0, 1, arr[0]);
-
+		gr = new Graph(1, 2, arr[0]);
+		gr = new Graph(2, 3, arr[0]);
+		gr = new Graph(3, 4, arr[0]);
+		gr = new Graph(4, 5, arr[0]);
 	}
-
 }
-
-/*
- * damp
- * 
- * 
- * arr[] = {} damp - source like - target
- * 
- * intermeduaite in arr
- * 
- */
