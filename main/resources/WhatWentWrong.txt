@@ -1,0 +1,39 @@
+09/02/2017 February - 2017 Wipro Intern
+22/03/2017 March - 2017 Atkins Intern
+
+1/12/2017 Samsung SDE-I (Dev): 
+-- Writing Big data/Hadoop on Resume
+
+1/12/2017 Flipkart SDE: 
+-- Getting frustrated in between interview 
+-- Could not give O(1) space solution for 0 matrix problem
+-- BST question about timestamps sorting, could not answer
+
+4/12/2017 MAQ Software SDE:
+-- Backtracking approach not given, sliding window technique on Strings
+-- Low GPA
+
+8/12/2017 December - 2017 Amdocs Software Developer Full Time
+
+10/07/2018 VMWare/Dell SDE-I:
+-- Binary Search implementation
+-- External Merge sort problem, could not give satisfactory answer
+
+18/11/2018 Box8 SDE:
+-- Not interesting JD (Startup)
+-- Puzzle solving took more time
+
+17/03/2019 Flipkart SDE-II:
+-- Machine coding not proper (Implementation of Flipkart coins)
+-- Zero System Design knowledge
+
+03/04/2020 Amazon SDE-I:
+-- Zero Graph algorithms knowledge (multi-node DFS + DP - variation on Bridge problem)
+-- Binary Search advanced application wrong (Leetcode/InterviewBit variation of Toto the monkey)
+
+22/05/2020 Amazon Programmer Analyst;
+-- Could not solve coding questions -- String DP 
+
+19/05/2020, 21/05/2020, 25/05/2020 May 2020 Paytm Java Back end Developer Full Time
+
+33% success 
