@@ -6,13 +6,13 @@ import java.util.Objects;
 public final class Employee {
 
 	final long eId;
-	final int age;
+	final int age1;
 	private ArrayList<String> address = new ArrayList<>();
 
-	public Employee(long eId, int age, ArrayList<String> address) {
+	public Employee(long eId, int age1, ArrayList<String> address1) {
 		this.eId = eId;
-		this.age = age;
-		this.address = address;
+		this.age1 = age1;
+		this.address = address1;
 	}
 
 	/**
@@ -26,7 +26,7 @@ public final class Employee {
 	 * @return the age
 	 */
 	public int getAge() {
-		return age;
+		return age1;
 	}
 
 	/**
@@ -38,12 +38,12 @@ public final class Employee {
 
 	@Override
 	public String toString() {
-		return String.format("Employee [eId=%s, age=%s, address=%s]", eId, age, address);
+		return String.format("Employee [eId=%s, age=%s, address=%s]", eId, age1, address);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(address, age, eId);
+		return Objects.hash(address, age1, eId);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		return Objects.equals(address, other.address) && age == other.age && eId == other.eId;
+		return Objects.equals(address, other.address) && age1 == other.age1 && eId == other.eId;
 	}
 
 }
