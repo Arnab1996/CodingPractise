@@ -1,5 +1,7 @@
 package ctci.Linkedlists;
 
+import java.util.HashMap;
+
 public class Oracle {
 
 	static class Node {
@@ -84,6 +86,11 @@ public class Oracle {
 	}
 
 	public static void main(String[] args) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		String s1 = "AA";
+		map.put(s1, "aa");
+		s1 = "SS";
+		System.out.println(map.get(s1)); // --> gives null
 		push(3);
 		push(2);
 		push(5);

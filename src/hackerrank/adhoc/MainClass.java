@@ -80,6 +80,7 @@ class Address implements Cloneable {
 public class MainClass {
 	public static void main(String[] args) throws Exception {
 		Employee1 emp = new Employee1("Adithya", 34, new Address("Home", "Madhapur", "Hyderabad"));
+		emp = new Employee1("Adithya", 34, new Address("Home", "Madhapur", "Hyderabad"));
 		Address address = emp.getAddress();
 		System.out.println(address);
 		address.setAddress("Hi-tech City");
