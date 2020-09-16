@@ -5,13 +5,32 @@ import java.util.Scanner;
 
 public final class Solution {
 
+	static int MODULO = 1000000007;
+
 	public static void main(String[] args) throws Throwable {
 		Scanner scanner = new Scanner(new InputStreamReader(System.in));
-		int ar[] = { 1, 2, 3, 4, 5, 6, 8 };
-		int size = ar.length;
-		System.out.println("Missing number: " + search(ar, size));
+		int t = scanner.nextInt();
+		while (t-- > 0) {
+			int n = scanner.nextInt();
+			int m = scanner.nextInt();
+			long p = powMod(n) - 1;
+			long q = powMod(m - 1) - 1;
+			System.out.println((p + q + (p * q) % MODULO) % MODULO);
+		}
 		scanner.close();
 		System.gc();
+	}
+
+	public static long powMod(long n) {
+		long ret = 1;
+		long a = 2;
+		while (n > 0) {
+			if ((n & 1) == 1)
+				ret = ret * a % MODULO;
+			a = a * a % MODULO;
+			n >>= 1;
+		}
+		return ret;
 	}
 
 	public static int binarySearch(int arrayOfElements[]) {
@@ -27,19 +46,6 @@ public final class Solution {
 			return arrayOfElements[midElement] + 1;
 		}
 		return -1;
-	}
-
-	public static int search(int ar[], int size) {
-		int leftIndex = 0, rightIndex = size - 1;
-		int midElement = 0;
-		while ((rightIndex - leftIndex) > 1) {
-			midElement = (leftIndex + rightIndex) / 2;
-			if ((ar[leftIndex] - leftIndex) != (ar[midElement] - midElement))
-				rightIndex = midElement;
-			else if ((ar[rightIndex] - rightIndex) != (ar[midElement] - midElement))
-				leftIndex = midElement;
-		}
-		return (ar[midElement] + 1);
 	}
 
 	public static int flipBit(int number, int k) {

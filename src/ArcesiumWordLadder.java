@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Test {
+public class ArcesiumWordLadder {
 
 	static class Graph {
 		int u, v;

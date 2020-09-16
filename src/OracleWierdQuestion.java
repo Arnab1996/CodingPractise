@@ -70,7 +70,7 @@ class DoOperation<T> implements Operations<T> {
 
 }
 
-class Test2 {
+class OracleWierdQuestion {
 	public static void main(String[] args) {
 
 		System.out.println("Enter the type of tree");
