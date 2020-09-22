@@ -44,9 +44,12 @@ public class SieveOfEratosthenes {
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(new InputStreamReader(System.in));
 		sieve();
-		long q = scanner.nextLong();
-		while (q-- > 0) {
-			System.out.println(primes.get(scanner.nextInt()));
+		/*
+		 * long q = scanner.nextLong(); while (q-- > 0) {
+		 * System.out.println(primes.get(scanner.nextInt())); }
+		 */
+		for (int i = 1; i <= 1200; i++) {
+			System.out.print(primes.get(i) + ",");
 		}
 
 		scanner.close();

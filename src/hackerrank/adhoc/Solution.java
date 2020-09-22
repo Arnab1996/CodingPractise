@@ -2,21 +2,50 @@ package hackerrank.adhoc;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.Stack;
 
 public final class Solution {
 
 	static int MODULO = 1000000007;
 
+	static class Pair {
+		int val, count;
+
+		public Pair(int val, int count) {
+			this.val = val;
+			this.count = count;
+		}
+
+	}
+
+// Complete the poisonousPlants function below.
+	static int poisonousPlants(int[] p) {
+		Stack<Pair> stack = new Stack<>();
+		int cnt = 0;
+		for (int i = p.length - 1; i >= 0; i--) {
+			int temp = 0;
+			while (!stack.empty() && p[i] < stack.peek().val) {
+				temp++;
+				Pair pair = stack.pop();
+				temp = Math.max(temp, pair.count);
+			}
+			cnt = Math.max(cnt, temp);
+			stack.push(new Pair(p[i], temp));
+		}
+
+		return cnt;
+	}
+
 	public static void main(String[] args) throws Throwable {
 		Scanner scanner = new Scanner(new InputStreamReader(System.in));
-		int t = scanner.nextInt();
-		while (t-- > 0) {
-			int n = scanner.nextInt();
-			int m = scanner.nextInt();
-			long p = powMod(n) - 1;
-			long q = powMod(m - 1) - 1;
-			System.out.println((p + q + (p * q) % MODULO) % MODULO);
+		int n = scanner.nextInt();
+		int arr[] = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			arr[i] = scanner.nextInt();
 		}
+
+		System.out.println(poisonousPlants(arr));
 		scanner.close();
 		System.gc();
 	}
