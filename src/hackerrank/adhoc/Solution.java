@@ -1,10 +1,44 @@
 package hackerrank.adhoc;
 
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
 public final class Solution {
+
+	// Input: [-35, 0, -5, -12, 94, 7, 12, 32, 9, 51] - unique numbers
+	// Closest numbers: |7 - 9|
+	// Output: 2
+
+	// Corner cases: size 0 & size 1 -> return -1
+	// size 2 -> Math.abs(arr[0] - arr[1])
+
+	int printMinDiff(int arr[]) {
+
+		int n = arr.length;
+		if (n <= 1)
+			return -1;
+		if (n == 2) {
+			return Math.abs(arr[1] - arr[0]);
+		}
+
+		// Step 1 --> Finding the pair with min diff
+		Arrays.sort(arr);
+		int minDiff = arr[1] - arr[0];
+		for (int i = 1; i < n; i++) {
+			minDiff = Math.min(minDiff, arr[i] - arr[i - 1]);
+		}
+
+		// Step 2 --> Printing out the pair
+		for (int i = 1; i < n; i++) {
+			if (arr[i] - arr[i - 1] == minDiff) {
+				System.out.println(arr[i - 1] + " " + arr[i]);
+			}
+		}
+		return minDiff;
+
+	}
 
 	static int MODULO = 1000000007;
 
@@ -38,14 +72,7 @@ public final class Solution {
 
 	public static void main(String[] args) throws Throwable {
 		Scanner scanner = new Scanner(new InputStreamReader(System.in));
-		int n = scanner.nextInt();
-		int arr[] = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			arr[i] = scanner.nextInt();
-		}
-
-		System.out.println(poisonousPlants(arr));
+		
 		scanner.close();
 		System.gc();
 	}
