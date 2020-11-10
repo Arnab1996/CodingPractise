@@ -35,6 +35,11 @@ public class Sandvine {
 	}
 
 	public static void main(String[] args) throws Exception {
+		Object O = getInstance();
+		System.out.println(O.toString());
+		Object O1 = getInstance();
+		System.out.println(O1.toString());
+
 		Thread t1 = new Thread() {
 			public void run() {
 				int i = 0;
@@ -66,6 +71,7 @@ public class Sandvine {
 		t2.start();
 		t1.join();
 		t2.join();
+
 	}
 
 }
