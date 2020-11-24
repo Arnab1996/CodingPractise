@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -16,13 +17,13 @@ public class Test_Adobe {
 		return factTail(k - 1, k * mul);
 	}
 
-	/*
+	/**
 	 * To compute sqrt(x):
 	 * 
 	 * ▶ Start with an initial estimate y (let’s pick y = 1).
 	 * 
 	 * ▶ Repeatedly improve the estimate by taking the mean of y and x/y.
-	 */
+	 **/
 
 	static double delta = 0.00000005;
 
@@ -39,7 +40,7 @@ public class Test_Adobe {
 		}
 	}
 
-	/*
+	/**
 	 * Problem statement: when we insert batch of records into mysql with MySQL
 	 * transaction then whole batch gets rolled back in case of any exception. write
 	 * a method to break the impacted batch of records into two when a function
@@ -58,7 +59,7 @@ public class Test_Adobe {
 	 * global error list -> start empty
 	 * 
 	 * Code:
-	 */
+	 **/
 
 	static List<Integer> inputParamListError = new ArrayList<Integer>();
 
@@ -97,7 +98,7 @@ public class Test_Adobe {
 			return false;
 	}
 
-	/*
+	/**
 	 * Convert BST to Circular Doubly Sorted Linked List
 	 * 
 	 * inherently sorted in inorder traversal
@@ -114,7 +115,7 @@ public class Test_Adobe {
 	 * 
 	 * rightList + above list
 	 * 
-	 */
+	 **/
 
 	class Node {
 		int val;
@@ -222,6 +223,87 @@ public class Test_Adobe {
 			}
 		}
 		return 0;
+	}
+
+	class Linkedlist {
+		Node head;
+
+		class Node {
+			int data;
+			Node next;
+
+			Node(int data) {
+				this.data = data;
+				next = null;
+			}
+		}
+
+		public Linkedlist insert(Linkedlist list, int data) {
+			Node newData = new Node(data);
+			// Emtpy ll
+			if (list.head == null) {
+				list.head = newData;
+			} else {
+				// ll with >= 1 elements
+				Node current = list.head;
+				while (current.next != null) {
+					current = current.next;
+				}
+				current.next = newData;
+			}
+			return list;
+		}
+
+		public Linkedlist delete(Linkedlist list, int data) {
+			if (list.head == null) {
+				return null;
+			} else if (list.head.data == data) {
+				list.head = list.head.next;
+			} else {
+				Node cur = list.head, prev = null;
+				while (cur != null && cur.data != data) {
+					prev = cur;
+					cur = cur.next;
+				}
+				if (cur == null) {
+					return null;
+				}
+				if (cur != null) {
+					prev.next = cur.next;
+				}
+			}
+			return list;
+		}
+
+		public Node reverse(Node head) {
+			Node prev = null;
+			Node cur = head;
+			Node next = null;
+			while (cur != null) {
+				next = cur.next;
+				cur.next = prev;
+				prev = cur;
+				cur = next;
+			}
+			head = prev;
+			return head;
+		}
+	}
+
+	public void printPairs(int a[], int sum) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for (int i : a) {
+			if (map.containsKey(i)) {
+				map.put(i, map.get(i) + 1);
+			} else
+				map.put(i, 1);
+		}
+		for (int i = 0; i < a.length; i++) {
+			int temp = sum - a[i];
+			if (map.containsKey(temp)) {
+				System.out.println(a[i] + "  " + temp);
+			}
+		}
 	}
 
 	public static void main(String[] args) {
