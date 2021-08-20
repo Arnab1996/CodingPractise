@@ -48,6 +48,6 @@ public class LongestSubstringWithoutRepeatation {
 		String str = "geeksforgeeks";
 		System.out.println("The input string is " + str);
 		int len = longestUniqueSubsttr(str);
-		System.out.println("The length of " + "the longest non repeating character is " + len);
+		System.out.println("The length of the longest non repeating character is " + len);
 	}
 }
