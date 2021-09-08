@@ -11,49 +11,37 @@ public class ThreeSum {
 	}
 
 	public List<List<Integer>> threeSum(int[] nums) {
-
-		List<List<Integer>> results = new LinkedList<List<Integer>>();
 		int len = nums.length;
+		List<List<Integer>> results = new LinkedList<List<Integer>>();
+		if (len < 3)
+			return results;
+
 		Arrays.sort(nums);
-		for (int i = 0; i < len; i++) {
-			if (i != 0 && nums[i] == nums[i - 1]) {
-				continue;
-			}
-			List<int[]> arr = twoSum(Arrays.copyOfRange(nums, i + 1, len), -nums[i]);
-			if (arr != null) {
-				for (int[] a : arr) {
-					List<Integer> result = new LinkedList<>();
-					result.add(nums[i]);
-					result.add(a[0]);
-					result.add(a[1]);
-					if (!results.contains(result)) {
+
+		for (int i = 0; i < len - 2; i++) {
+			if (i == 0 || nums[i] != nums[i - 1]) {
+				int j = i + 1, k = len - 1;
+				while (j < k) {
+					int sum = nums[i] + nums[j] + nums[k];
+					if (sum == 0) {
+						List<Integer> result = new LinkedList<Integer>();
+						result.add(nums[i]);
+						result.add(nums[j]);
+						result.add(nums[k]);
 						results.add(result);
-					}
+						while (j < k && nums[j] == nums[j + 1])
+							j++;
+						while (j < k && nums[k] == nums[k - 1])
+							k--;
+						j++;
+						k--;
+					} else if (sum > 0)
+						k--;
+					else
+						j++;
 				}
 			}
 		}
 		return results;
-
 	}
-
-	public static List<int[]> twoSum(int[] numbers, int target) {
-		List<int[]> results = new LinkedList<int[]>();
-		int begin = 0;
-		int end = numbers.length - 1;
-
-		while (begin < end) {
-			if (numbers[begin] + numbers[end] == target) {
-				int toReturn[] = { numbers[begin], numbers[end] };
-				results.add(toReturn);
-				begin++;
-				end--;
-			} else if (numbers[begin] + numbers[end] > target) {
-				end--;
-			} else {
-				begin++;
-			}
-		}
-		return results;
-	}
-
 }

@@ -16,7 +16,9 @@ public class Trie {
 
 		@Override
 		public String toString() {
-			return "\n[ " + children.toString() + ", " + endOfWord + " ]\n";
+			StringBuilder builder = new StringBuilder();
+			builder.append("TrieNode [children=").append(children).append(", endOfWord=").append(endOfWord).append("]\n");
+			return builder.toString();
 		}
 
 	}

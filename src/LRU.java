@@ -31,7 +31,7 @@ public class LRU {
 		if (map.containsKey(pageKey)) {
 			return map.get(pageKey);
 		}
-		return "";
+		return "-1";
 	}
 
 	public void updateCache(int pageKey, String value) {
@@ -53,10 +53,15 @@ public class LRU {
 
 	public static void main(String[] args) {
 		LRU lru = new LRU();
-		lru.addCache(1, "a");
-		lru.addCache(2, "b");
-		lru.addCache(3, "c");
-		lru.addCache(4, "d");
+		lru.addCache(1, "1");
+		lru.addCache(2, "2");
+		System.out.println(lru.fetchCache(1));
+		lru.addCache(3, "3");
+		System.out.println(lru.fetchCache(2));
+		lru.addCache(4, "4");
+		System.out.println(lru.fetchCache(1));
+		System.out.println(lru.fetchCache(3));
+		System.out.println(lru.fetchCache(4));
 		lru.addCache(5, "e");
 		lru.addCache(6, "f");
 		lru.addCache(7, "g");
