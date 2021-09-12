@@ -50,7 +50,7 @@ public class NextGreater {
 			// IV) Sort the digits after (i-1)
 			// in ascending order
 			Arrays.sort(ar, i, n);
-			System.out.print("Next number with same" + " set of digits is ");
+			System.out.print("Next number with same set of digits is ");
 			for (i = 0; i < n; i++)
 				System.out.print(ar[i]);
 		}

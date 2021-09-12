@@ -19,7 +19,7 @@ public class RootToLeafSum {
 
 	}
 
-	class MinMax{
+	static class MinMax{
 	    int min;
 	    int max;
 	    boolean isBST;
@@ -105,7 +105,7 @@ public class RootToLeafSum {
         //of this node is not greater/equal than max of left and less than min of right
         //then subtree with this node as root will not be BST. 
         //Return false and max size of left and right subtree to parent
-        if(leftMinMax.isBST == false || rightMinMax.isBST == false || (leftMinMax.max > root.data || rightMinMax.min <= root.data)){
+        if(!leftMinMax.isBST || !rightMinMax.isBST || (leftMinMax.max > root.data || rightMinMax.min <= root.data)){
             m.isBST = false;
             m.size = Math.max(leftMinMax.size, rightMinMax.size);
             return m;

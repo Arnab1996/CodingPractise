@@ -140,9 +140,15 @@ public class Test_Google {
         boolean boldFlag = false;
         boolean italicFlag = false;
         StringBuilder sb = new StringBuilder();
-        sb.append("<!DOCTYPE html>\n" + "<html>\n" + "<head>\n"
-                + "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n"
-                + "  <title> Text Conversion </title>\n" + "</head>\n<body>\n");
+        sb.append("""
+                <!DOCTYPE html>
+                <html>
+                <head>
+                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                  <title> Text Conversion </title>
+                </head>
+                <body>
+                """);
 
         for (int i = 0, len = markdownString.length(); i < len; i++) {
 
@@ -219,12 +225,12 @@ public class Test_Google {
     }
 
     void computeScore(ArrayList<ArrayList<String>> G, String employee) {
-        int arr[] = new int[G.size()];
+        int[] arr = new int[G.size()];
         helper(G, employee, arr, 0);
         System.out.println(arr[0]);
     }
 
-    int helper(ArrayList<ArrayList<String>> G, String employee, int arr[], int index) {
+    int helper(ArrayList<ArrayList<String>> G, String employee, int[] arr, int index) {
 
         if (G.get(index).size() == 0) {
             arr[index] = 1;
@@ -258,7 +264,7 @@ public class Test_Google {
      *
      */
 
-    class TreeNode {
+    static class TreeNode {
         int data;
         TreeNode left, right;
 
@@ -273,7 +279,7 @@ public class Test_Google {
 
     }
 
-    class Result {
+    static class Result {
         int max;
         TreeNode answer;
 
