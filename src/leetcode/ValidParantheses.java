@@ -6,7 +6,7 @@ public class ValidParantheses {
 	public static void main(String[] args) {
 		ValidParantheses parantheses = new ValidParantheses();
 		System.out.println(parantheses.isValid("(]"));
-
+		System.out.println(parantheses.isValid("({})"));
 	}
 
 	public boolean isValid(String s) {
@@ -48,5 +48,20 @@ public class ValidParantheses {
 			}
 		}
 		return st.isEmpty();
+	}
+
+	public boolean isValid2(String s) {
+		Stack<Character> stack = new Stack<Character>();
+		for (char c : s.toCharArray()) {
+			if (c == '(')
+				stack.push(')');
+			else if (c == '{')
+				stack.push('}');
+			else if (c == '[')
+				stack.push(']');
+			else if (stack.isEmpty() || stack.pop() != c)
+				return false;
+		}
+		return stack.isEmpty();
 	}
 }

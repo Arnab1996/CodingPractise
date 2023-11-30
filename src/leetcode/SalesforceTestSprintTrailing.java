@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SprintTrailing {
+public class SalesforceTestSprintTrailing {
     /*
     Imagine there are n points along a straight trail, while a runner run sprints of intervals between those point.
     The training plan is an array a[], which implies the runner should run from point a[i] to point a[i+1].
@@ -25,7 +25,7 @@ public class SprintTrailing {
         sprints.add(1);
         sprints.add(2);
 
-        System.out.println(new SprintTrailing().getMostVisited(n, sprints));
+        System.out.println(new SalesforceTestSprintTrailing().getMostVisited(n, sprints));
     }
 
     public int getMostVisited(int n, List<Integer> sprints) {
